@@ -34,13 +34,31 @@ nav
         font-weight: bold
         margin: 0
 
-img
-    display: block
-    height: 100%
+@keyframes loading
+    0%, 100%
+        background-color: #eceff1
+
+    50%
+        background-color: #cfd8dc
+
+.image
+    animation: loading 2s ease infinite
     grid-column: 1 / 5
     grid-row: 4 / 5
-    object-fit: cover
+    height: 100%
+    overflow: hidden
     width: 100%
+
+    img
+        display: block
+        height: 100%
+        opacity: 0
+        object-fit: cover
+        transition: all .5s ease
+        width: 100%
+
+        &.loaded
+            opacity: 1
 
 @media screen and ( min-width: 1280px )
     img
