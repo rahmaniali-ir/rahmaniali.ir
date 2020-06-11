@@ -20,13 +20,13 @@ body
 
 header
     display: grid
-    grid-template-columns: $padding 1fr $padding
+    grid-template-columns: $padding 1fr 1fr 1fr $padding
     grid-template-rows: $padding 2em 1fr 1fr
     height: 100vh
 
 nav
     border-bottom: 2px solid currentColor
-    grid-column: 2 / 3
+    grid-column: 2 / 5
     grid-row: 2 / 3
 
     .logo
@@ -37,15 +37,19 @@ nav
 img
     display: block
     height: 100%
-    grid-column: 1 / 3
+    grid-column: 1 / 5
     grid-row: 4 / 5
     object-fit: cover
     width: 100%
 
+@media screen and ( min-width: 1280px )
+    img
+        grid-column: 1 / 4
+
 .about
     align-items: flex-end
     display: flex
-    grid-column: 2 / 3
+    grid-column: 2 / 5
     grid-row: 3 / 4
     justify-content: space-between
 
@@ -57,17 +61,27 @@ img
         max-width: 400px
         width: 50%
 
-    .social
-        align-items: flex-end
-        display: flex
-        flex-direction: column
+.social
+    align-items: flex-end
+    display: flex
+    flex-direction: column
+    grid-column: 4 / 5
+    grid-row: 3 / 4
+    justify-content: flex-end
 
-        a
-            color: inherit
-            font-variant-caps: all-petite-caps
-            text-decoration: none
-            transition: letter-spacing .5s ease
-            
-            &:hover
-                font-weight: bold
-                letter-spacing: 2px
+    a
+        color: inherit
+        font-variant-caps: all-petite-caps
+        text-decoration: none
+        transition: letter-spacing .5s ease
+        
+        &:hover
+            font-weight: bold
+            letter-spacing: 2px
+
+@media screen and ( min-width: 1280px )
+    .social
+        align-items: flex-start
+        grid-row: 4 / 5
+        justify-content: flex-start
+        padding-right: 1em
